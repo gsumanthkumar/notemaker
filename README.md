@@ -38,6 +38,8 @@ Endpoint |HTTP Method | CRUD Method | Result
 `notes/id/` | DELETE | DELETE | Delete a Note
 `notes/version-history/id/`| GET | READ | Get Note Version History
 
+## we also have swagger url for api documentation and the route is /swagger
+
 ## Use
 We can test the API using [Postman](https://www.postman.com/)
 
