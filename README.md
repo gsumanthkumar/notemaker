@@ -19,6 +19,7 @@ You can install all the required dependencies by running
 ```
 pip install -r requirements.txt
 ```
+We have to make migrations after installing requirements.
 
 ## Structure
 In a RESTful API, endpoints (URLs) define the structure of the API and how end users access data from our application using the HTTP methods - GET, POST, PUT, DELETE. Endpoints should be logically organized around _collections_ and _elements_, both of which are resources.
@@ -45,8 +46,57 @@ We can test the API using [Postman](https://www.postman.com/)
 First, we have to start up Django's development server.
 ```
 python manage.py runserver
+
+For understanding Payload ->
+
+signup/ - POST
+
+curl --location 'http://127.0.0.1:8000/signup/' \
+--header 'Cookie: csrftoken=zMcnzOIhKQaziKCuOxKfan3wQvpxYWfe; sessionid=42c6y9mj512vi09kehhbjxlpcq9t99zw' \
+--form 'username="test6"' \
+--form 'password="test7"'
+
+login/ - POST
+
+curl --location 'http://127.0.0.1:8000/login/' \
+--header 'Cookie: csrftoken=JgcBVVbIjSpZlFAX4m2myQ6wxa9FXeto; sessionid=kyewtvvgmkxfeqe3og2tvuhvzfhwvbbx' \
+--form 'username="test1"' \
+--form 'password="test1"'
+
+signout/ - POST
+
+curl --location --request POST 'http://127.0.0.1:8000/signout/' \
+--header 'Authorization: Token 0976b0f012d394a64916fc0c7869096d54310c18' \
+--header 'Cookie: csrftoken=JgcBVVbIjSpZlFAX4m2myQ6wxa9FXeto; sessionid=kyewtvvgmkxfeqe3og2tvuhvzfhwvbbx'
+
+notes/create/ - POST
+
+curl --location 'http://127.0.0.1:8000/notes/create/' \
+--header 'Authorization: Token 1193548f4ca78826f866aa47dcd1e6d42369801e' \
+--header 'Cookie: csrftoken=bRNyao4snr0D7RyUuaUguzVOFckxOObt; sessionid=8upjli25lxv4e1e2r879p83ctvbkdavq' \
+--form 'text="sample notes 10"'
+
+notes/id/ - GET, PUT, DELETE
+
+curl --location 'http://127.0.0.1:8000/notes/3/' \
+--header 'Authorization: Token 1193548f4ca78826f866aa47dcd1e6d42369801e' \
+--header 'Cookie: csrftoken=JgcBVVbIjSpZlFAX4m2myQ6wxa9FXeto; sessionid=kyewtvvgmkxfeqe3og2tvuhvzfhwvbbx'
+
+notes/share/ - POST
+
+curl --location 'http://127.0.0.1:8000/notes/share/' \
+--header 'Authorization: Token 1193548f4ca78826f866aa47dcd1e6d42369801e' \
+--header 'Cookie: csrftoken=bRNyao4snr0D7RyUuaUguzVOFckxOObt; sessionid=8upjli25lxv4e1e2r879p83ctvbkdavq' \
+--form 'nid="17"' \
+--form 'shared_with="45"'
+
+notes/version-history/id/ - GET
+
+curl --location 'http://127.0.0.1:8000/notes/version-history/18/' \
+--header 'Authorization: Token 1193548f4ca78826f866aa47dcd1e6d42369801e' \
+--header 'Cookie: csrftoken=JgcBVVbIjSpZlFAX4m2myQ6wxa9FXeto; sessionid=kyewtvvgmkxfeqe3og2tvuhvzfhwvbbx'
 ```
-Only authenticated users can use the API services, for that reason if we try this:
+Only authenticated users can use the API services:
 ```
 http http://127.0.0.1:8000/notes/3 "Authorization: Token 1193548f4ca78826f866aa47dcd1e6d42369801e"
 ```
