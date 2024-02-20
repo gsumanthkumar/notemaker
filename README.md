@@ -33,7 +33,7 @@ Endpoint |HTTP Method | CRUD Method | Result
 `signout/` | POST | CREATE | User Logout
 `notes/create/` | POST | CREATE | Create Note
 `notes/id/` | GET | READ | Get a single Note
-`notes/share/`| POST | CREATE | Share not with other users
+`notes/share/`| POST | CREATE | Share note with other users
 `notes/id/` | PUT | UPDATE | Update a Note
 `notes/id/` | DELETE | DELETE | Delete a Note
 `notes/version-history/id/`| GET | READ | Get Note Version History
