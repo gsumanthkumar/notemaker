@@ -29,13 +29,13 @@ Endpoint |HTTP Method | CRUD Method | Result
 -- | -- |-- |--
 `signup/` | POST | CREATE | User Signup
 `login/` | POST | CREATE | User Login
-`signout.` | POST | CREATE | User Logout
+`signout/` | POST | CREATE | User Logout
 `notes/create/` | POST | CREATE | Create Note
-`notes/:id/` | GET | READ | Get a single Note
+`notes/id/` | GET | READ | Get a single Note
 `notes/share/`| POST | CREATE | Create a new 
-`notes/:id/` | PUT | UPDATE | Update a Note
-`notes/:id/` | DELETE | DELETE | Delete a Note
-`notes/version-history/:id/`| GET | READ | Get Note Version History
+`notes/id/` | PUT | UPDATE | Update a Note
+`notes/id/` | DELETE | DELETE | Delete a Note
+`notes/version-history/id/`| GET | READ | Get Note Version History
 
 ## Use
 We can test the API using [Postman](https://www.postman.com/)
