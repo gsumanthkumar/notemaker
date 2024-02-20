@@ -88,7 +88,7 @@ curl --location 'http://127.0.0.1:8000/notes/share/' \
 --header 'Authorization: Token 1193548f4ca78826f866aa47dcd1e6d42369801e' \
 --header 'Cookie: csrftoken=bRNyao4snr0D7RyUuaUguzVOFckxOObt; sessionid=8upjli25lxv4e1e2r879p83ctvbkdavq' \
 --form 'nid="17"' \
---form 'shared_with="45"'
+--form 'shared_with="45"'    -> Here 4 and 5 are user ids.
 
 notes/version-history/id/ - GET
 
