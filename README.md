@@ -32,7 +32,7 @@ Endpoint |HTTP Method | CRUD Method | Result
 `signout/` | POST | CREATE | User Logout
 `notes/create/` | POST | CREATE | Create Note
 `notes/id/` | GET | READ | Get a single Note
-`notes/share/`| POST | CREATE | Create a new 
+`notes/share/`| POST | CREATE | Share not with other users
 `notes/id/` | PUT | UPDATE | Update a Note
 `notes/id/` | DELETE | DELETE | Delete a Note
 `notes/version-history/id/`| GET | READ | Get Note Version History
@@ -50,7 +50,7 @@ Only authenticated users can use the API services, for that reason if we try thi
 ```
 http http://127.0.0.1:8000/notes/3 "Authorization: Token 1193548f4ca78826f866aa47dcd1e6d42369801e"
 ```
-we get the movie with id = 3
+we get the note with id = 3
 ```
 {"id":3,"text":"sample notes 1","created_at":"2024-02-20T07:44:33.450502Z","updated_at":"2024-02-20T07:44:33.450568Z","owner":2,"shared":[],"owner_name":"test1","message":"Note Fetched successfully."}
 
